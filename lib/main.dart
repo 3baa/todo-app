@@ -25,6 +25,7 @@ class _TodoListState extends State<TodoList> {
   final List<TodoItem> _todoItems = [];
   final TextEditingController _controller = TextEditingController();
   bool _isImageVisible = false; 
+  bool _isImage2Visible =false;
 
   void _addTodoItem(String task) {
     if (task.isNotEmpty) {
@@ -76,14 +77,26 @@ class _TodoListState extends State<TodoList> {
     );
   }
 
-  // Function to show image temporarily when heart icon is clicked
+  
   void _showImageTemporarily() {
     setState(() {
-      _isImageVisible = true; // Show the image
+      _isImageVisible = true;
+      _isImage2Visible = false; 
     });
     Timer(Duration(seconds: 2), () {
       setState(() {
-        _isImageVisible = false; // Hide the image after 2 seconds
+        _isImageVisible = false; 
+      });
+    });
+  }
+  void _showImage2Temporarily() {
+    setState(() {
+      _isImage2Visible = true;
+       _isImageVisible = false; 
+    });
+    Timer(Duration(seconds: 2), () {
+      setState(() {
+        _isImage2Visible = false;
       });
     });
   }
@@ -186,10 +199,10 @@ class _TodoListState extends State<TodoList> {
                 ),
                 IconButton(
                 icon: Icon(Icons.emoji_emotions_outlined, color: const Color.fromARGB(134, 87, 2, 63),size: 65,),
-                onPressed: _showImageTemporarily, 
+                onPressed: _showImage2Temporarily, 
               ),
               
-              if (_isImageVisible)
+              if (_isImage2Visible)
                 Image.asset(
                   'images/r.jpg.png', 
                   width: 80,
