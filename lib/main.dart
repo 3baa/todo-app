@@ -7,10 +7,7 @@ class TodoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'To-Do App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      title: 'todo'
       home: TodoList(),
     );
   }
@@ -24,7 +21,7 @@ class TodoList extends StatefulWidget {
 class _TodoListState extends State<TodoList> {
   final List<TodoItem> _todoItems = [];
   final TextEditingController _controller = TextEditingController();
-  bool _isImageVisible = false; 
+  bool _isImageVisible = false; // da 3shan sticker 
   bool _isImage2Visible =false;
 
   void _addTodoItem(String task) {
