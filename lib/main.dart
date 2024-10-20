@@ -12,6 +12,12 @@ class TodoApp extends StatelessWidget {
     );
   }
 }
+class TodoItem {
+  String task;
+  bool isCompleted;
+
+  TodoItem(this.task, this.isCompleted);
+}
 
 class TodoList extends StatefulWidget {
   @override
@@ -214,9 +220,4 @@ class _TodoListState extends State<TodoList> {
   }
 }
 
-class TodoItem {
-  String task;
-  bool isCompleted;
 
-  TodoItem(this.task, this.isCompleted);
-}
